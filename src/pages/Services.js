@@ -1,3 +1,7 @@
+import { motion } from "framer-motion"
+
+// animations
+import { animationThree } from "../animations/index"
 
 // components
 import Header from "../components/Header"
@@ -10,8 +14,15 @@ const Desc = 'Lorem ipsum, dolor sit amet.'
 const Services = () => {
     return (
         <>
-            <Header />
-            <Hero image={Image} title={Title} desc={Desc}/>
+            <motion.div
+                initial="in"
+                animate="end"
+                exit="out"
+                variants={animationThree}
+            >
+                <Header />
+                <Hero image={Image} title={Title} desc={Desc}/>
+            </motion.div>
         </>
     )
 }

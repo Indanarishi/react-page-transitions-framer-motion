@@ -1,3 +1,8 @@
+import { motion } from "framer-motion"
+
+// animations
+import { animationOne } from "../animations/index"
+import { transition } from "../animations/index"
 
 // components
 import Header from "../components/Header"
@@ -10,8 +15,16 @@ const Desc = 'Lorem ipsum, dolor sit amet.'
 const Home = () => {
     return (
         <>
-            <Header />
-            <Hero image={Image} title={Title} desc={Desc} />
+            <motion.div
+                initial="out"
+                animate="in"
+                exit="out"
+                variants={animationOne}
+                transition={transition}
+            >
+                <Header />
+                <Hero image={Image} title={Title} desc={Desc} />
+            </motion.div>
         </>
     )
 }

@@ -1,5 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
+// styles
+import GlobalStyles from './globalStyles';
 
 // pages
 import Home from './pages/Home';
@@ -10,11 +14,14 @@ function App() {
   return (
     <>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-        </Routes>
+        <GlobalStyles />
+        <AnimatePresence exitBeforeEnter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+          </Routes>
+        </AnimatePresence>
       </Router>
     </>
   );
